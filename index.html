@@ -7,10 +7,69 @@
     <title>The Title</title>
     <link href="reset.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet"> 
 </head>
-
-
 <body>
+ 
+
+<h1>Book Library</h1>
+ 
+<div class="addNewBookContainer">
+    <div class="addNewBook"> + Add New Book</div>
+
+    <div class="numberOfBookContainer">
+        <div class="totalBook">Total: 0</div>
+    </div>
+
+</div>
+
+
+<form class="formContainer">
+
+    <div class="formHeader">
+        <label class="formName">Add a New Book</label>
+        <label class="closeForm"> &times; </label>
+    </div>
+
+    <input class="formbox formTitle" placeholder="Title"> 
+    <input class="formbox formAuthor" placeholder="Author"> 
+    <input class="formbox formPages" placeholder="Pages"> 
+    <input class="formbox formDate" placeholder="Date(YYYY-MM-DD)"> 
+
+<div class="formReadContainer">
+    <div class="wrapper">
+
+        <input type="radio" name="select" id="option-1" value="read"checked>
+        <input type="radio" name="select" id="option-2" value="notRead">
+
+        <label for="option-1" class="option option-1">
+            <div class="dot"></div>
+            <span>Read</span>
+        </label>
+
+        <label for="option-2" class="option option-2">
+            <div class="dot"></div>
+            <span>Not Read</span>
+        </label>
+
+    </div>
+</div>
+
+    <button class="submit" type="submit"> Add </button>
+    <button class="reset" type="reset"> Reset </button>
+
+</form>
+
+<div id="overLay"></div>
+
+
+<div class="cardContainer" id="cardContainer">
+
+</div>
+
+
+
 
 <script src="script.js"> </script> 
 </body>
