@@ -1,34 +1,19 @@
-// functionality for add new book button, and closing form.
 const form = document.querySelector(".formContainer")
 const addNewBook = document.querySelector(".addNewBook")
 const overLay = document.querySelector('#overLay')
 const closeForm = document.querySelector('.closeForm');
 
-addNewBook.addEventListener("click",()=>{
-   openForm();
-})
+const titleInput = form.querySelector('.formTitle')
+const authorInput = form.querySelector('.formAuthor')
+const pagesInput = form.querySelector('.formPages')
+const dateInput = form.querySelector('.formDate')
+const readInput1 = form.querySelector('#option-1')
+const readInput2 = form.querySelector('#option-2')
+const submit = document.querySelector(".submit");
 
-closeForm.addEventListener('click',()=>{
-    closeFormFunction()
-});
+const cardContainer = document.querySelector('.cardContainer')
 
-function openForm(){
-    closeForm.classList.add("closeForm")
-    closeForm.innerHTML="&times;"
-    titleInput.value=""
-    authorInput.value=""
-    pagesInput.value=""
-    dateInput.value=''
-    submit.textContent="Add"
-    form.classList.add("active")
-    overLay.classList.add("active")
-  
-}
-
-function closeFormFunction(){
-    form.classList.remove("active")
-    overLay.classList.remove("active")
-}
+const totalCards = document.querySelector(".totalBook")
 
 
 
@@ -42,6 +27,7 @@ let myLibrary=[
         read: "Yes",
     },
 ];
+
 //constructor
 function Book(title, author, pages, date, read){
     this.title = title;
@@ -53,15 +39,36 @@ function Book(title, author, pages, date, read){
 
 
 
-//functionality that will add new book to myLibrary array
-const titleInput = form.querySelector('.formTitle')
-const authorInput = form.querySelector('.formAuthor')
-const pagesInput = form.querySelector('.formPages')
-const dateInput = form.querySelector('.formDate')
-const readInput1 = form.querySelector('#option-1')
-const readInput2 = form.querySelector('#option-2')
-const submit = document.querySelector(".submit");
+// functionality for add new book button, and closing form.
+addNewBook.addEventListener("click",()=>{
+    openForm();
+ })
+ 
+ closeForm.addEventListener('click',()=>{
+     closeFormFunction()
+ });
+ 
+ function openForm(){
+     closeForm.classList.add("closeForm")
+     closeForm.innerHTML="&times;"
+     titleInput.value=""
+     authorInput.value=""
+     pagesInput.value=""
+     dateInput.value=''
+     submit.textContent="Add"
+     form.classList.add("active")
+     overLay.classList.add("active")
+   
+ }
+ 
+ function closeFormFunction(){
+     form.classList.remove("active")
+     overLay.classList.remove("active")
+ }
+ 
 
+
+//functionality that will add new book to myLibrary array
 submit.addEventListener('click',(e)=>{
     e.preventDefault()
     addBookToLibrary()
@@ -92,7 +99,6 @@ function readValue(){
 
 
 //reset the carContainer to remove all cards, this is needed to prevent displayArray() function making duplicates
-const cardContainer = document.querySelector('.cardContainer')
 function resetGrid() {
     cardContainer.innerHTML = "";
   }
@@ -168,7 +174,7 @@ function removeFromLibrary(bookTitle) {
 
 
 
-//function that will edit the book card
+//function that will allow user to edit the book card
 function editLibraryCard(title, author, pages, date, cards){
     openForm()
     submit.textContent="Save Edit"
@@ -185,16 +191,13 @@ function editLibraryCard(title, author, pages, date, cards){
 
 
 //function for updating the total number of cards
-const totalCards = document.querySelector(".totalBook")
 function totalCardCount(){
-
     totalCards.innerHTML = `Total: ${myLibrary.length}`
-    
 }
 totalCardCount()
 
 
-console.log(myLibrary)
+
 
 
 
