@@ -29,13 +29,16 @@ let myLibrary=[
 ];
 
 //constructor
-function Book(title, author, pages, date, read){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.date = date;
-    this.read = read;
+class Book {
+    constructor(title, author, pages, date, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.date = date;
+        this.read = read;
+    }
 }
+
 
 
 
@@ -102,8 +105,6 @@ function readValue(){
 function resetGrid() {
     cardContainer.innerHTML = "";
   }
-
-
 
 //function to loop through the array and displays each book on the page
 function displayArray(){
